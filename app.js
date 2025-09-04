@@ -1,11 +1,12 @@
 let url = "http://universities.hipolabs.com/search?country=india&name=";
+
 let btn = document.querySelector("button");
 
 btn.addEventListener("click", async () => {
   let state = document.querySelector("input").value;
   console.log(state);
 
-  let colArr = await getCollegs(state);
+  let colArr = await getColleges(state);
   show(colArr);
 });
 
@@ -22,7 +23,7 @@ function show(colArr) {
 }
 // const country = "india";
 
-async function getCollegs(state) {
+async function getColleges(state) {
   try {
     let res = await axios.get(url + state);
     return res.data;
